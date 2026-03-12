@@ -8,7 +8,7 @@
     --text-secondary: rgba(255, 255, 255, 0.7);
     --font-heading: 'Playfair Display', serif;
     --font-body: 'Inter', sans-serif;
-    --font-script: 'Great Vibes', cursive;
+    --font-script: 'Alex Brush', 'Great Vibes', cursive;
 }
 
 /* Base resets & setup */
@@ -104,81 +104,7 @@ section {
     background: linear-gradient(135deg, var(--dark), var(--dark-alt));
 }
 
-/* Hero Section & Curtain */
-.curtain-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 50;
-}
-
-.curtain-panel {
-    position: absolute;
-    top: 0;
-    width: 50%;
-    height: 100vh;
-    background: linear-gradient(to bottom, #1a0b12, #3d0c1e, #1a0b12);
-    box-shadow: 0 0 30px rgba(0,0,0,0.8);
-    z-index: 51;
-    transition: transform 3s cubic-bezier(0.86, 0, 0.07, 1);
-}
-
-/* Texture overlay for curtain */
-.curtain-panel::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: repeating-linear-gradient(
-        to right,
-        transparent,
-        transparent 10px,
-        rgba(0,0,0,0.2) 10px,
-        rgba(0,0,0,0.2) 20px
-    );
-    opacity: 0.5;
-}
-
-/* Gold trim on the edges */
-.curtain-left::after {
-    content: '';
-    position: absolute;
-    top: 0; right: 0; bottom: 0; width: 5px;
-    background: linear-gradient(to bottom, #8a6d3b, #f3e5ab, #8a6d3b);
-    box-shadow: -2px 0 10px rgba(212, 175, 55, 0.5);
-}
-
-.curtain-right::after {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; bottom: 0; width: 5px;
-    background: linear-gradient(to bottom, #8a6d3b, #f3e5ab, #8a6d3b);
-    box-shadow: 2px 0 10px rgba(212, 175, 55, 0.5);
-}
-
-.curtain-left { left: 0; transform-origin: left; }
-.curtain-right { right: 0; transform-origin: right; }
-
-/* Open State */
-.curtain-container.open .curtain-left {
-    transform: translateX(-100%);
-}
-.curtain-container.open .curtain-right {
-    transform: translateX(100%);
-}
-
-/* Make container pointer-events none after open so it doesn't block clicks */
-.curtain-container.open {
-    pointer-events: none;
-}
-.curtain-container.open .hero-content {
-    pointer-events: auto;
-}
+/* Hero Section */
 
 .hero-content {
     display: flex; 
@@ -188,10 +114,10 @@ section {
     z-index: 2;
     opacity: 0;
     transform: scale(0.9);
-    transition: opacity 2s ease 1s, transform 2.5s cubic-bezier(0.19, 1, 0.22, 1) 0.8s;
+    transition: opacity 2s ease 0.2s, transform 2.5s cubic-bezier(0.19, 1, 0.22, 1) 0s;
 }
 
-.curtain-container.open .hero-content {
+body.loaded .hero-content {
     opacity: 1;
     transform: scale(1);
 }
@@ -215,13 +141,13 @@ section {
     transition: all 1.5s ease 1.5s;
 }
 
-.curtain-container.open .subtitle {
+body.loaded .subtitle {
     transform: translateY(0);
     opacity: 1;
 }
 
 .names {
-    font-family: var(--font-heading); 
+    font-family: var(--font-script); 
     font-size: 8vw; 
     font-weight: 400; 
     line-height: 1.1;
@@ -233,7 +159,7 @@ section {
     transition: all 2s ease 1.8s;
 }
 
-.curtain-container.open .names {
+body.loaded .names {
     transform: translateY(0);
     opacity: 1;
 }
@@ -250,8 +176,6 @@ section {
 
 /* Scroll indicator */
 .scroll-indicator {
-    position: absolute; 
-    bottom: 50px; 
     display: flex; 
     flex-direction: column; 
     align-items: center; 
@@ -259,6 +183,7 @@ section {
     opacity: 0.6; 
     animation: fadeIn 3s ease, floatBounce 3s ease-in-out infinite;
     z-index: 10;
+    margin-top: 40px; /* Space from the date */
 }
 
 .scroll-indicator span { 

@@ -1,14 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
     
     /* =======================================
-       0. Curtain Reveal Animation
+       0. Hero Animation
        ======================================= */
-    const curtain = document.getElementById("curtain");
-    if(curtain) {
-        setTimeout(() => {
-            curtain.classList.add("open");
-        }, 800); // 800ms delay before opening
-    }
+    setTimeout(() => {
+        document.body.classList.add("loaded");
+    }, 100);
 
     /* =======================================
        1. Particles Generation
@@ -84,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
     /* =======================================
        3. Countdown Timer to May 9, 2026
        ======================================= */
-    const weddingDate = new Date("May 9, 2026 15:00:00").getTime();
+    const weddingDate = new Date("May 9, 2026 11:30:00").getTime();
     
     const elements = {
         days: document.getElementById("days"),
