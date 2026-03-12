@@ -10,16 +10,53 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;600&family=Alex+Brush&family=Great+Vibes&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <div id="particles-container"></div>
+<body class="envelope-active">
+    <div id="envelope-wrapper">
+        <div class="envelope-container" id="envelope-btn">
+            <div class="envelope">
+                <!-- Royal border frame outside the envelope -->
+                <div class="envelope-royal-frame"></div>
+                <!-- Letter inside the envelope -->
+                <div class="envelope-letter">
+                    <div class="letter-content">
+                        <div class="letter-crown">♛</div>
+                        <div class="letter-top-ornament">✦ &nbsp; ✦ &nbsp; ✦</div>
+                        <div class="letter-names">
+                            <span class="name">Alant</span>
+                            <span class="amp">&</span>
+                            <span class="name">Josmin</span>
+                        </div>
+                        <div class="letter-divider">
+                            <span class="divider-gem">◆</span>
+                        </div>
+                        <p class="letter-tagline">Together with their families<br>joyfully invite you to celebrate</p>
+                        <p class="letter-date-text">May 9, 2026</p>
+                        <span class="letter-text">— Click the Seal to Open —</span>
+                    </div>
+                </div>
+                <!-- Envelope folds -->
+                <div class="envelope-front-left"></div>
+                <div class="envelope-front-right"></div>
+                <div class="envelope-front-bottom"></div>
+                <div class="envelope-flap">
+                    <!-- Royal crest on flap -->
+                    <div class="flap-crest">❧</div>
+                </div>
+                <!-- Standalone wax seal —  NOT inside flap, so clip-path won't hide it -->
+                <div class="wax-seal">
+                    <span class="wax-seal-text">A&amp;J</span>
+                </div>
+            </div>
+        </div>
+    </div>
     
-    <nav class="glass-nav">
-        <ul>
-            <li><a href="#home" class="active">Home</a></li>
-            <li><a href="#story">Our Story</a></li>
-            <li><a href="#events">Events</a></li>
-        </ul>
-    </nav>
+    <div id="particles-container"></div>
+
+    <!-- Floating music toggle -->
+    <button id="music-toggle" aria-label="Toggle background music" title="Toggle music">
+        <span id="music-icon">♪</span>
+    </button>
+
 
     <main>
         <section id="home" class="hero section-dark">
@@ -98,7 +135,7 @@
     </main>
 
     <footer style="text-align: center; padding: 40px; background: #070913; border-top: 1px solid rgba(255,255,255,0.05);">
-        <p style="font-family: var(--font-script); font-size: 24px; color: var(--gold);">Alant & Josmin</p>
+        <p style="font-family: var(--font-heading); font-size: 24px; color: var(--gold);">Alant & Josmin</p>
         <p style="font-size: 12px; color: var(--text-secondary); margin-top: 10px; letter-spacing: 2px;">WE CANNOT WAIT TO CELEBRATE WITH YOU</p>
     </footer>
 
